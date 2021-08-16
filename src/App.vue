@@ -1,9 +1,15 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <div class="container-fluid">
+      <div id="nav">
+        <nav class="nav nav-pills nav-justified">
+          <a class="nav-link" ><router-link to="/">Contacts</router-link></a>
+          <a class="nav-link" ><router-link to="/create">Create Contact</router-link></a>
+          <a class="nav-link" ><router-link to="/search">Search Contact</router-link></a>
+
+        </nav>
+      </div>
+      <router-view />
+    </div>
 </template>
 
 <style>
@@ -22,6 +28,7 @@
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {

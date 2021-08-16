@@ -1,18 +1,17 @@
 <template>
-  <div class="home">
-
-    <Contacts />
+  <div class="container">
+    <CreateContact />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Contacts from '@/components/Contacts.vue'
+import CreateContact from '@/components/CreateContact.vue'
 
 export default {
   name: 'Home',
   components: {
-    Contacts
+    CreateContact
   }
 }
 </script>
