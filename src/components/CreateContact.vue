@@ -3,24 +3,25 @@
     <div class="title">
       Add New Contact
     </div>
-    <div class="form" @submit.prevent="onSubmitform">
-      <div class="input_fields">
-        <label>First Name</label>
-        <input v-model="form.firstName" type="text" class="input">
-      </div>
-      <div class="input_fields">
-        <label>Last Name</label>
-        <input type="text" v-model="form.lastName"  class="input">
-      </div>
+    <div class="form" >
+      <form @submit.prevent="onSubmitform">
+        <div class="input_fields">
+          <label>First Name</label>
+          <input v-model="form.firstName" type="text" class="input">
+        </div>
+        <div class="input_fields">
+          <label>Last Name</label>
+          <input type="text" v-model="form.lastName"  class="input">
+        </div>
 
-      <div class="input_fields">
-        <label>E-mail</label>
-        <input type="email" v-model="form.email" class="input">
-      </div>
+        <div class="input_fields">
+          <label>E-mail</label>
+          <input type="email" v-model="form.email" class="input">
+        </div>
 
-      <div class="input_field">
-        <button class="btn btn-success" type="submit" name="button">Create Contact</button>
-      </div>
+        <button class="btn btn-success" type="submit">Create Contact</button>
+      </form>
+
     </div>
   </div>
 </template>

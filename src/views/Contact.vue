@@ -1,10 +1,10 @@
 <template>
   <div class="">
-    <div class="card" style="width: 18rem;">
-      <ul class="list-group list-group-flush" v-for="{ id, firstName, lastName, email} in contact" :key="id">
-        <li  class="list-group-item">First Name: {{ firstName }}</li>
-        <li class="list-group-item">Last Name: {{ lastName }}</li>
-        <li class="list-group-item">Email: {{ email }}</li>
+    <div class="card" style="width: 18rem;" >
+      <ul class="list-group list-group-flush"  >
+        <li  class="list-group-item">First Name: {{ filteredData[0].firstName }}</li>
+        <li class="list-group-item">Last Name: {{ filteredData[0].lastName }}</li>
+        <li class="list-group-item">Email: {{ filteredData[0].email }}</li>
       </ul>
     </div>
   </div>
@@ -23,10 +23,15 @@ export default {
     const contactId = computed(() => route.params.id)
     onMounted(async () => {
     contact = await getContact(contactId.value)
-      console.log(contact, contactId.value)
+    contact.id= contactId.value;
+      console.log(contact)
     })
+  },
 
-    return { contact }
+  data(){
+    return {
+       filteredData: contact
+    }
   }
 
 }

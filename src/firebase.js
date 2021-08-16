@@ -16,7 +16,7 @@ const firebaseapp = firebase.initializeApp(config);
 const db = firebaseapp.firestore();
 const contactsCollection = db.collection("contacts");
 
-// const t = async ontactsCollection.doc("Epf8wx3dfJTGfViM3eMv").get();
+// const t =  contactsCollection.add({"firstName": "Tom", "lastName": "Soth", "email": "tomsoth@gmail.com"});
 // console.log(t);
 
 export const createContact = contact => {
@@ -38,8 +38,19 @@ export const deleteContact = (id) => {
 };
 
 export const searchContact = async name => {
-  const contact = contactsCollection.where("firstName", "==", name).where("lastName", "==", name);
-  return contact.exists ? contact.data() : null
+  const contacts = useLoadcontacts();
+  let searched = [];
+  for (const {firstName, lastName, email } in contacts){
+    if (firstName == name || lastName) {
+      searched.push({
+        firstName,
+        lastName,
+        email
+      });
+    }
+  }
+  console.log(searched);
+
 }
 
 export const useLoadcontacts = () => {

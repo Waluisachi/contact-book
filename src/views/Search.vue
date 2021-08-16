@@ -3,12 +3,13 @@
     <form class="form" @submit.prevent="onSubmitform">
       <div class="input-group">
           <div class="form-outline">
-            <input type="search" id="form1" class="form-control" />
             <label class="form-label" for="form1">Search</label>
+            <input type="search" id="form1" class="form-control" />
+
           </div>
 
         </div>
-        <button type="submit" class="btn btn-primary btn-sm">Search </button>
+        <button type="submit" class="btn btn-primary btn-sm mt-2">Search </button>
     </form>
   </div>
 
