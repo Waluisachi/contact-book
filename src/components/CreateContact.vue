@@ -36,7 +36,6 @@ import { reactive } from "vue";
 
 
     const onSubmitform = async () => {
-      console.log(form);
       await createContact({ ...form })
       form.firstName = ""
       form.lastName = ""

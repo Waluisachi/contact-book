@@ -1,12 +1,32 @@
 <template>
-  <div class="">
-    <div class="card" style="width: 18rem;" >
-      <ul class="list-group list-group-flush"  >
-        <li  class="list-group-item">First Name: {{ filteredData[0].firstName }}</li>
-        <li class="list-group-item">Last Name: {{ filteredData[0].lastName }}</li>
-        <li class="list-group-item">Email: {{ filteredData[0].email }}</li>
-      </ul>
-    </div>
+  <div class="card mt-4">
+    <table class="table m-0">
+      <thead>
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Name</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+
+        </tr>
+      </thead>
+      <tbody>
+          <tr v-for="{ id, firstName, lastName} in contact" :key="id">
+          <td>
+            <router-link :to="`/contact/${id}`">
+            {{ firstName }} {{ lastName }}
+            </router-link>
+          </td>
+
+          <td>
+            <router-link :to="`/edit/${id}`">
+              <button type="submit" class="btn btn-primary btn-sm me-2">Edit</button>
+            </router-link>
+           </td>
+          <td> <button @click="deleteContact(id)" class="btn btn-danger btn-sm">Delete</button> </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -24,15 +44,10 @@ export default {
     onMounted(async () => {
     contact = await getContact(contactId.value)
     contact.id= contactId.value;
-      console.log(contact)
+      console.log(contact.email)
     })
+    return {contact};
   },
-
-  data(){
-    return {
-       filteredData: contact
-    }
-  }
 
 }
 
